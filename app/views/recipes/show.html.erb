@@ -1,0 +1,25 @@
+<main role="main">
+  <div class="container">
+    <section>
+      <div class="row">
+        <div class="col">
+          <nav class="nav">
+            <%= link_to "< View All Recipes", recipes_path, role: "navigation" %>
+          </nav>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="row">
+        <div class="col">
+          <p><%= @recipe.title %></p>
+          <p><%= @recipe.description %></p>
+          <p><%= @recipe.tags.map(&:name).join(", ") %></p>
+          <p>Calorie: <%= @recipe.calories %></p>
+        </div>
+        <div class="col">
+          <img class="recipe-image" src="<%= @recipe.photo.image_url %>" />
+        </div>
+      </div>
+    </section>
+</main>
