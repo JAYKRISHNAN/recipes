@@ -1,8 +1,9 @@
 # README
 
-[See App](http://jk-marley-spoon-recipes.herokuapp.com/recipes/437eO3ORCME46i02SeCW46)
+## Demo
+* [View Application Demo](http://jk-marley-spoon-recipes.herokuapp.com/recipes/437eO3ORCME46i02SeCW46)
 
-
+## Info
 * A simple app that lists a few recipes
 
 * Ruby version 2.6.3
