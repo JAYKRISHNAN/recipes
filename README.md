@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## See App Here
+ 
+[See App](http://jk-marley-spoon-recipes.herokuapp.com/recipes/437eO3ORCME46i02SeCW46)
 
-Things you may want to cover:
 
-* Ruby version
+## To Run Specs
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Run ``` bundle install ```
+* Run ``` bundle exec rspec spec/ ```
