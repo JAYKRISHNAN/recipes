@@ -1,5 +1,6 @@
 <main role="main">
-  <div class="container">
+  <div class="container" id="recipe-page">
+
     <section>
       <div class="row">
         <div class="col">
@@ -9,13 +10,15 @@
         </div>
       </div>
     </section>
-    <section>
+
+    <section class="recipe">
       <div class="row">
         <div class="col">
-          <p><%= @recipe.title %></p>
-          <p><%= @recipe.description %></p>
-          <p><%= @recipe.tags.map(&:name).join(", ") %></p>
-          <p>Calorie: <%= @recipe.calories %></p>
+          <ul class="list-group recipe-details">
+            <li class="list-group-item recipe-title"><%= @recipe.title %></li>
+            <li class="list-group-item"><%= @recipe.description %>/li>
+            <li class="list-group-item">Calorie: <%= @recipe.calories %></li>
+          </ul>
         </div>
         <div class="col">
           <img class="recipe-image" src="<%= @recipe.photo.image_url %>" />

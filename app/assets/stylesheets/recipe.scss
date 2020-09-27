@@ -1,3 +1,36 @@
-.recipe-image {
-  height: 400px;
+.recipe-card {
+  margin-bottom: 4em;
+
+  .recipe-image {
+    height: 400px;
+  }
 }
+
+#recipe-page {
+  .recipe {
+    padding: 1em 2em;
+    background: #e9e2e2;
+
+    .recipe-details {
+      li {
+        border: 0;
+        padding: 0;
+        margin-bottom: 2em;
+        background: #e9e2e2;
+
+        &.recipe-title {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .recipe-image {
+      height: 400px;
+    }
+  }
+
+  nav {
+    margin: 3em 0;
+  }
+}
+
