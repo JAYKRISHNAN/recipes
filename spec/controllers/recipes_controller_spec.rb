@@ -44,7 +44,20 @@ describe RecipesController, type: :controller do
           photo: OpenStruct.new({image_url: 'recipe_1_image_url'}),
           description: "Recipe 1 description",
           calories: 788,
-          tags: [OpenStruct.new({name: 'tag_1'}), OpenStruct.new({name: 'tag_2'})]
+          tags: [OpenStruct.new({name: 'tag_1'}), OpenStruct.new({name: 'tag_2'})],
+          chef: OpenStruct.new({name: 'Chef Name'})
+      })
+    end
+
+    let(:recipe_without_tags_and_chef_details) do
+      OpenStruct.new({
+          title: 'Recipe Name 1',
+          id: 'random_recipe_id',
+          photo: OpenStruct.new({image_url: 'recipe_1_image_url'}),
+          description: "Recipe 1 description",
+          calories: 788,
+          tags: [OpenStruct.new({name: 'tag_1'}), OpenStruct.new({name: 'tag_2'})],
+          chef: OpenStruct.new({name: 'Chef Name'})
       })
     end
 
@@ -60,7 +73,7 @@ describe RecipesController, type: :controller do
       make_request
     end
 
-    it 'displays title and image of all recipes' do
+    it 'displays details of all recipes' do
       make_request
 
       expect(response).to have_http_status(:success)
@@ -69,8 +82,28 @@ describe RecipesController, type: :controller do
       expect(response_body).to include recipe.photo.image_url
       expect(response_body).to include recipe.calories.to_s
       expect(response_body).to include recipe.description
-      expect(response_body).to include 'tag_1'
-      expect(response_body).to include 'tag_2'
+      expect(response_body).to include 'Tag 1'
+      expect(response_body).to include 'Tag 2'
+      expect(response_body).to include 'Chef Name'
+    end
+
+    it 'handles case where tags and chef details are not available' do
+      recipe_without_tags_and_chef_details = OpenStruct.new({
+        title: 'Recipe Name 2',
+        id: 'random_recipe_id_2',
+        photo: OpenStruct.new({image_url: 'recipe_2_image_url'}),
+        description: "Recipe 2 description",
+        calories: 788,
+      })
+
+      allow($contentful).to receive(:entry).with('random_recipe_id_2') { recipe_without_tags_and_chef_details }
+
+      get :show, params: { id: 'random_recipe_id_2' }
+
+      expect(response).to have_http_status(:success)
+      response_body = response.body
+      expect(response_body).to include recipe_without_tags_and_chef_details.title
+      expect(response_body).to include 'N/A'
     end
   end
 end

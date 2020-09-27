@@ -17,7 +17,20 @@
           <ul class="list-group recipe-details">
             <li class="list-group-item recipe-title"><%= @recipe.title %></li>
             <li class="list-group-item"><%= @recipe.description %>/li>
-            <li class="list-group-item">Calorie: <%= @recipe.calories %></li>
+            <li class="list-group-item">
+              <label>Chef : </label>
+              <%= @chef_name %>
+            </li>
+
+             <li class="list-group-item">
+              <label>Tags : </label>
+              <%= @tag_names %>
+            </li>
+
+             <li class="list-group-item">
+              <label>Calories : </label>
+              <%= @recipe.calories %>
+            </li>
           </ul>
         </div>
         <div class="col">
