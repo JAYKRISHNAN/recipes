@@ -1,7 +1,7 @@
 # README
 
 ## Demo
-* [View Application Demo](http://jk-marley-spoon-recipes.herokuapp.com/recipes/437eO3ORCME46i02SeCW46)
+* [View Application Demo](http://jk-marley-spoon-recipes.herokuapp.com)
 
 ## Info
 * A simple app that lists a few recipes
